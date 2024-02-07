@@ -1,12 +1,21 @@
 import React from 'react';
-import './Main.css';
+import { mockData } from '../../mockData';
+import Card from '../Card/Card';
+import './Main.scss';
 
 function Main() {
+  console.log(mockData);
   return (
-    <main>
-      <div>
-        <h1>Item</h1>
-      </div>
+    <main className='main-container'>
+      {mockData.map((item) => {
+        return (
+          <Card
+            key={item.title}
+            title={item.title}
+            description={item.description}
+          />
+        );
+      })}
     </main>
   );
 }

@@ -1,0 +1,21 @@
+.card {
+  background-color: rgba(246, 176, 45, 0.672);
+  height: 15rem;
+  width: 13rem;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: 'title' 'description' 'button';
+  h3 {
+    grid-area: title;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    grid-area: description;
+    align-self: start;
+  }
+}
