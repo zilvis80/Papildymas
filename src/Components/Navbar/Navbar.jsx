@@ -1,8 +1,9 @@
 import React from 'react';
 import './Navbar.scss';
+
 function Navbar() {
   return (
-    <nav className='nav_container'>
+    <nav className='nav-container'>
       <h1>My Shop</h1>
       <ul>
         <li>All items</li>
@@ -11,4 +12,5 @@ function Navbar() {
     </nav>
   );
 }
+
 export default Navbar;

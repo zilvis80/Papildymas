@@ -1,15 +1,16 @@
 import React from 'react';
+// components
+import Button from '../Button/Button';
 import './Card.scss';
 
-function card({ title, description }) {
-  // console.log(props);
+function Card({ title, description, img }) {
   return (
     <div className='card'>
       <h3>{title}</h3>
       <p>{description}</p>
-      <button>Click here</button>
+      <Button type='teal'>Buy More</Button>
     </div>
   );
 }
 
-export default card;
+export default Card;
