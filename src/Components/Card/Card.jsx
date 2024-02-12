@@ -3,12 +3,15 @@ import React from 'react';
 import Button from '../Button/Button';
 import './Card.scss';
 
-function Card({ title, description, img }) {
+function Card({ title, description, setCardData }) {
+  const handleAddToCard = () => {
+    setCardData([{ title, description }]);
+  };
   return (
     <div className='card'>
       <h3>{title}</h3>
       <p>{description}</p>
-      <Button type='teal'>Buy More</Button>
+      <Button onClick={handleAddToCard}>Buy More</Button>
     </div>
   );
 }
