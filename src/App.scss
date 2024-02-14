@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}

@@ -1,24 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
-function Navbar({ setTab }) {
+function Navbar() {
   return (
     <nav className='nav-container'>
       <h1>My Shop</h1>
       <ul>
-        <li
-          onClick={() => {
-            setTab('all');
-          }}
-        >
-          All items
+        <li>
+          <NavLink to='/'>All items</NavLink>
         </li>
-        <li
-          onClick={() => {
-            setTab('card');
-          }}
-        >
-          My Card
+        <li>
+          <NavLink to='/my-card'>My Card</NavLink>
         </li>
         <li>Favorite</li>
       </ul>

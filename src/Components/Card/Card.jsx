@@ -3,15 +3,17 @@ import React from 'react';
 import Button from '../Button/Button';
 import './Card.scss';
 
-function Card({ title, description, setCardData }) {
+function Card({ title, description, setCardData, card }) {
   const handleAddToCard = () => {
-    setCardData([{ title, description }]);
+    setCardData({ title, description });
   };
   return (
     <div className='card'>
       <h3>{title}</h3>
       <p>{description}</p>
-      <Button onClick={handleAddToCard}>Buy More</Button>
+      <Button onClick={handleAddToCard}>
+        {card ? 'go to the store' : 'Buy Now'}
+      </Button>
     </div>
   );
 }
