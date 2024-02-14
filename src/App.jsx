@@ -30,13 +30,21 @@ function App() {
         <Route
           path='/'
           element={
-            <Main data={data} setData={setData} setCardData={handleAddToCard} />
+            <Main
+              data={data}
+              setData={setData}
+              handleAddToCard={handleAddToCard}
+            />
           }
         />
         <Route
           path='/my-card'
           element={
-            <MyCard cardData={cardData} setCardData={handleRemoveFromCard} />
+            <MyCard
+              cardData={cardData}
+              setCardData={setCardData}
+              handleRemoveFromCard={handleRemoveFromCard}
+            />
           }
         />
         {/* <Route path='/favorite' element={<Favorite />} /> */}
