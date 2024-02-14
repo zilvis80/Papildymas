@@ -39,6 +39,7 @@ function App() {
             <MyCard cardData={cardData} setCardData={handleRemoveFromCard} />
           }
         />
+        {/* <Route path='/favorite' element={<Favorite />} /> */}
       </Routes>
     </>
   );
