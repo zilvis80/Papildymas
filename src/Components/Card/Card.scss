@@ -7,8 +7,9 @@
   box-shadow: rgba(19, 16, 16, 0.671) 0px 1px 4px;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 1fr 2fr 2rem;
+  grid-template-rows: 1.5rem 1fr 2fr 2rem;
   grid-template-areas:
+    'favorite'
     'title'
     'description';
   border-radius: 2rem;
@@ -19,6 +20,17 @@
 
   @include mobile {
     width: 100%;
+  }
+  .favorite-icon {
+    grid-area: favorite;
+    margin-left: auto;
+    color: var(--teal-300);
+    width: 1.5rem;
+    height: 1.5rem;
+
+    &--active {
+      color: var(--orange-100);
+    }
   }
 
   h3 {

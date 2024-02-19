@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { handleSort } from '../../Utils/SortUtils';
+import { AppContext } from '../../Context/AppContext';
 
 // import { mockData } from '../../mockData';
 // components
@@ -7,8 +8,8 @@ import Card from '../Card/Card';
 import SortButtons from '../SortButtons/SortButtons';
 import './Main.scss';
 
-function Main({ handleAddToCard, data, setData }) {
-  // const [data, setData] = useState(mockData);
+function Main() {
+  const { data, setData, handleAddToCard } = useContext(AppContext);
 
   const handleSortData = (direction) => {
     const sortedData = handleSort(data, direction);

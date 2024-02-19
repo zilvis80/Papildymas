@@ -5,6 +5,7 @@ import './App.scss';
 import Navbar from './Components/Navbar/Navbar';
 import Main from './Components/Main/Main';
 import MyCard from './Components/MyCard/MyCard';
+import Favorite from './Components/Favorite/Favorite';
 
 function App() {
   const [cardData, setCardData] = useState([]);
@@ -47,7 +48,7 @@ function App() {
             />
           }
         />
-        {/* <Route path='/favorite' element={<Favorite />} /> */}
+        <Route path='/Favorite' element={<Favorite />} />
       </Routes>
     </>
   );
