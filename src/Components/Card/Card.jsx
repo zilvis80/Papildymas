@@ -9,7 +9,7 @@ import './Card.scss';
 function Card({ title, description, handleCardButton, card }) {
   const { favoriteData, handleAddToFavorite, handleRemoveFromFavorite } =
     useContext(AppContext);
-  // const isFavorite = favoriteData.some((item) => item.title === title);
+  const isFavorite = favoriteData.some((item) => item.title === title);
   const handleAddToCard = () => {
     handleCardButton({ title, description });
   };
@@ -18,11 +18,11 @@ function Card({ title, description, handleCardButton, card }) {
     <div className='card'>
       <FontAwesomeIcon
         icon={faHeart}
-        className='favorite-icon favorite-icon--active'
+        className={`favorite-icon ${isFavorite ? 'favorite-icon--active' : ''}`}
         onClick={() => {
-          // isFavorite
-          //   ? handleRemoveFromFavorite({ title, description })
-          //   : handleAddToFavorite({ title, description });
+          isFavorite
+            ? handleRemoveFromFavorite({ title, description })
+            : handleAddToFavorite({ title, description });
         }}
       />
       <h3>{title}</h3>
