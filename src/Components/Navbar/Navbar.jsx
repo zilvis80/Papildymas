@@ -1,24 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import User from '../User/User';
 import './Navbar.scss';
 
 function Navbar() {
-  const [user, setUser] = useState('loading....');
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await fetch(
-          'https://jsonplaceholder.typicode.com/users/1'
-        );
-        if (!response.ok) throw new Error('Somteng wrong');
-        const data = await response.json();
-        console.log(data);
-        setUser(data.username);
-      } catch (error) {}
-    };
-    fetchUser();
-  }, []);
-
   return (
     <nav className='nav-container'>
       <h1>My Shop</h1>
@@ -33,7 +18,9 @@ function Navbar() {
           <NavLink to='/Favorite'>Favorite</NavLink>
         </li>
       </ul>
-      <h1>{user}</h1>
+      <h1>
+        <User />
+      </h1>
     </nav>
   );
 }

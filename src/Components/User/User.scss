@@ -1,0 +1,22 @@
+.spinner-size {
+  width: 3rem !important;
+  height: 3rem !important;
+}
+.user {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--orange-100);
+  text-align: center;
+  line-height: 3rem;
+}
+#offcanvas {
+  background-color: var(--dark-bg);
+  color: var(--light-font);
+}
+svg {
+  color: var(--orange-300);
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+}
