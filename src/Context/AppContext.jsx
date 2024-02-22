@@ -1,12 +1,26 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import { mockData } from '../mockData';
 
 export const AppContext = createContext();
 
 function AppContextProvider(props) {
-  const [data, setData] = useState(mockData);
-  const [cardData, setCardData] = useState([]);
-  const [favoriteData, setFavoriteData] = useState([]);
+  const [data, setData] = useState(
+    JSON.parse(localStorage.getItem('data')) || mockData
+  );
+  const [cardData, setCardData] = useState(
+    JSON.parse(localStorage.getItem('cardData')) || []
+  );
+  const [favoriteData, setFavoriteData] = useState(
+    JSON.parse(localStorage.getItem('favoriteData')) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(data));
+    localStorage.setItem('cardData', JSON.stringify(cardData));
+  }, [data, cardData]);
+  useEffect(() => {
+    localStorage.setItem('favoriteData', JSON.stringify(favoriteData));
+  }, [favoriteData]);
 
   const handleAddToCard = (item) => {
     setCardData([...cardData, item]);
@@ -16,10 +30,12 @@ function AppContextProvider(props) {
     );
 
     setData(filteredData);
+    // localStorage.setItem('data', JSON.stringify(filteredData));
   };
 
   const handleRemoveFromCard = (item) => {
     setData([item, ...data]);
+    // localStorage.setItem('data', JSON.stringify([item, ...data]));
 
     const filteredCardData = cardData.filter(
       (dataItem) => dataItem.title !== item.title
