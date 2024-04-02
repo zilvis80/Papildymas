@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import User from '../User/User';
+import AdminUser from '../AdminUser/AdminUser';
 import './Navbar.scss';
 
 function Navbar() {
@@ -17,9 +18,13 @@ function Navbar() {
         <li>
           <NavLink to='/Favorite'>Favorite</NavLink>
         </li>
+        <li>
+          <NavLink to='/admin'>Admin</NavLink>
+        </li>
       </ul>
       <h1>
         <User />
+        <AdminUser />
       </h1>
     </nav>
   );
