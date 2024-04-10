@@ -10,20 +10,19 @@ function AppContextProvider(props) {
   const [favoriteData, setFavoriteData] = useState(
     JSON.parse(localStorage.getItem('favoriteData')) || []
   );
-
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/product');
+      console.log('response', response);
+      const product = await response.json();
+      console.log('data', product);
+      const filteredData = product.filter(
+        (item) => !cardData.some((cardItem) => cardItem.title === item.title)
+      );
+      setData(filteredData);
+    } catch (error) {}
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/product');
-        console.log('response', response);
-        const product = await response.json();
-        console.log('data', product);
-        const filteredData = product.filter(
-          (item) => !cardData.some((cardItem) => cardItem.title === item.title)
-        );
-        setData(filteredData);
-      } catch (error) {}
-    };
     fetchData();
   }, []);
 
@@ -75,6 +74,7 @@ function AppContextProvider(props) {
         setData,
         cardData,
         setCardData,
+        fetchData,
         favoriteData,
         setFavoriteData,
         handleAddToCard,
