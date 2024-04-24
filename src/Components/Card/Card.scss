@@ -1,5 +1,8 @@
 @use '../../assets/styles/mixins.scss' as *;
-
+.card_list {
+  display: inline-flex;
+  padding: 20px;
+}
 .item {
   height: 15rem;
   width: 13rem;
@@ -11,7 +14,8 @@
   grid-template-areas:
     'favorite'
     'title'
-    'description';
+    'description'
+    'price';
   border-radius: 2rem;
 
   @include tablet {

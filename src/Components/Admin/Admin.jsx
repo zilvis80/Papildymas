@@ -17,6 +17,7 @@ function Admin() {
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
   const [imgUrl, setImgUrl] = useState('');
   const [status, setStatus] = useState({
     value: null, // 'success' | 'danger'
@@ -39,8 +40,9 @@ function Admin() {
       const data = {
         title,
         description,
+        price,
       };
-
+      console.log('post data.....', data);
       if (imgUrl.trim()) data.img = imgUrl;
 
       const response = await fetch(`${cfg.API.HOST}/product`, {
@@ -53,7 +55,7 @@ function Admin() {
       });
 
       const product = await response.json();
-
+      console.log('post product.....', product);
       if (!response.ok) throw new Error(product.error);
 
       setStatus({ value: 'success', message: 'Product created successfully' });
@@ -107,6 +109,19 @@ function Admin() {
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
+          <Row>
+            <Form.Group as={Col} md='4' controlId='validationCustom03'>
+              <Form.Label>Price</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Price'
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+          </Row>
+
           <Row>
             <Form.Group as={Col} md='4' controlId='validationCustom03'>
               <Form.Label>Image url</Form.Label>

@@ -32,8 +32,9 @@ function Main() {
       {!data.length && <h2>There is no items in the shop</h2>}
       {data
         .filter(
-          ({ title, description }) =>
+          ({ title, description, price }) =>
             title.toLowerCase().includes(searchValue) ||
+            price.toLowerCase().includes(searchValue) ||
             description.toLowerCase().includes(searchValue.toLowerCase())
         )
         .map((item) => (
@@ -41,6 +42,7 @@ function Main() {
             key={item.title}
             title={item.title}
             description={item.description}
+            price={item.price}
             handleCardButton={handleAddToCard}
           />
         ))}

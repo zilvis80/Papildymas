@@ -17,11 +17,12 @@ function MyCard() {
     <main className='container'>
       <SortButtons handleSortData={handleSortData} />
 
-      {cardData.map(({ title, description }) => (
+      {cardData.map(({ title, description, price }) => (
         <Card
           key={title}
           title={title}
           description={description}
+          price={price}
           handleCardButton={handleRemoveFromCard}
           card={true}
         />
