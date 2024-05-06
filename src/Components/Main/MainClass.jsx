@@ -46,6 +46,7 @@ class Main extends React.Component {
         {data.map((item) => (
           <Card
             key={item.title}
+            imgUrl={item.img}
             title={item.title}
             description={item.description}
             price={item.price}

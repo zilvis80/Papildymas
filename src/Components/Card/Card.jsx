@@ -6,12 +6,13 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button/Button';
 import './Card.scss';
 
-function Card({ title, description, price, handleCardButton, card }) {
+function Card({ imgUrl, title, description, price, handleCardButton, card }) {
+  console.log('img..', imgUrl);
   const { favoriteData, handleAddToFavorite, handleRemoveFromFavorite } =
     useContext(AppContext);
   const isFavorite = favoriteData.some((item) => item.title === title);
   const handleAddToCard = () => {
-    handleCardButton({ title, description, price });
+    handleCardButton({ title, description, price, imgUrl });
   };
 
   return (
@@ -28,6 +29,8 @@ function Card({ title, description, price, handleCardButton, card }) {
               : handleAddToFavorite({ title, description });
           }}
         />
+        img:{imgUrl}
+        {/* <img src='' alt='prod' width='500' height='600'></img> */}
         <h3>{title}</h3>
         <p>{description}</p>
         <h4>{price}</h4>

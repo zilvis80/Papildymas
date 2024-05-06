@@ -41,6 +41,7 @@ function Admin() {
         title,
         description,
         price,
+        imgUrl,
       };
       console.log('post data.....', data);
       if (imgUrl.trim()) data.img = imgUrl;
@@ -113,7 +114,7 @@ function Admin() {
             <Form.Group as={Col} md='4' controlId='validationCustom03'>
               <Form.Label>Price</Form.Label>
               <Form.Control
-                type='text'
+                type='number'
                 placeholder='Price'
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
@@ -123,7 +124,7 @@ function Admin() {
           </Row>
 
           <Row>
-            <Form.Group as={Col} md='4' controlId='validationCustom03'>
+            <Form.Group as={Col} md='4' controlId='validationCustom04'>
               <Form.Label>Image url</Form.Label>
               <Form.Control
                 type='text'

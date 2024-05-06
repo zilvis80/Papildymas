@@ -15,7 +15,7 @@ function AppContextProvider(props) {
       const response = await fetch('http://localhost:3000/product');
       console.log('response', response);
       const product = await response.json();
-      console.log('data', product);
+      console.log('product', product);
       const filteredData = product.filter(
         (item) => !cardData.some((cardItem) => cardItem.title === item.title)
       );

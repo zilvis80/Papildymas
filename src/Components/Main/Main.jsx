@@ -9,6 +9,7 @@ import './Main.scss';
 
 function Main() {
   const { data, setData, handleAddToCard } = useContext(AppContext);
+  console.log('main data...', data);
   const [searchValue, setSearchValue] = useState('');
 
   const handleSortData = (direction) => {
@@ -32,14 +33,16 @@ function Main() {
       {!data.length && <h2>There is no items in the shop</h2>}
       {data
         .filter(
-          ({ title, description, price }) =>
+          ({ title, description, price, imgUrl }) =>
             title.toLowerCase().includes(searchValue) ||
             price.toLowerCase().includes(searchValue) ||
-            description.toLowerCase().includes(searchValue.toLowerCase())
+            description.toLowerCase().includes(searchValue.toLowerCase()) ||
+            imgUrl.toLowerCase().includes(searchValue)
         )
         .map((item) => (
           <Card
             key={item.title}
+            imgUrl={item.img}
             title={item.title}
             description={item.description}
             price={item.price}
